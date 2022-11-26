@@ -42,10 +42,6 @@ public class MainActivity extends AppCompatActivity {
         play_again.setOnClickListener(view -> this.startGame());
     }
 
-    private void registerComponents() {
-        registerSlots();
-    }
-
     private void registerSlots() {
         for (int i = FIRST_SLOT_ORDINAL; i <= LAST_SLOT_ORDINAL; i++) {
             for (int j = FIRST_SLOT_ORDINAL; j <= LAST_SLOT_ORDINAL; j++) {
@@ -125,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startGame() {
-        registerComponents();
+        registerSlots();
         if (turn != Turn.X)
             this.changeTurn(null);
     }
