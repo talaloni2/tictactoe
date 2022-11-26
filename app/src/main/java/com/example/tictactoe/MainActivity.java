@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.tictactoe.models.Win;
 import com.example.tictactoe.utils.CompareUtil;
@@ -25,6 +24,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Turn turn = Turn.X;
+
+    ImageView winLTRSlash;
+    ImageView winRTLSlash;
+    List<ImageView> winHorizontal;
+    List<ImageView> winVertical;
+
     private static final int FIRST_SLOT_ORDINAL = 1;
     private static final int LAST_SLOT_ORDINAL = 3;
 
@@ -40,6 +45,25 @@ public class MainActivity extends AppCompatActivity {
     private void assignComponents() {
         Button play_again = findViewById(getIdentifier("play_again"));
         play_again.setOnClickListener(view -> this.startGame());
+    }
+
+    private void assignWinMarks() {
+        this.winLTRSlash = findViewById(getIdentifier("winLTRSlash"));
+        this.winLTRSlash.setVisibility(View.INVISIBLE);
+
+        this.winRTLSlash = findViewById(getIdentifier("winRTLSlash"));
+        this.winRTLSlash.setVisibility(View.INVISIBLE);
+
+        this.winHorizontal = new ArrayList<>();
+        this.winVertical = new ArrayList<>();
+
+        for (int i = FIRST_SLOT_ORDINAL; i <= LAST_SLOT_ORDINAL; i++) {
+            this.winHorizontal.add(findViewById(getIdentifier("winHorizontal" + i)));
+            this.winVertical.add(findViewById(getIdentifier("winVertical" + i)));
+
+            this.winHorizontal.get(i - 1).setVisibility(View.INVISIBLE);
+            this.winVertical.get(i - 1).setVisibility(View.INVISIBLE);
+        }
     }
 
     private void registerSlots() {
@@ -94,16 +118,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean changeTurnForWin(Win win, ImageView turnImage) {
-        if (win != null) {
-            if (this.turn == Turn.X)
-                turnImage.setImageResource(R.drawable.xwin);
-            else {
-                turnImage.setImageResource(R.drawable.owin);
-            }
-            this.turn = null;
-            return true;
+        if (win == null)
+            return false;
+
+        if (this.turn == Turn.X)
+            turnImage.setImageResource(R.drawable.xwin);
+        else {
+            turnImage.setImageResource(R.drawable.owin);
         }
-        return false;
+
+        this.drawWin(win);
+
+        this.turn = null;
+        return true;
+    }
+
+    private void drawWin(Win win) {
+        switch (win.orientation) {
+            case RTLSLASH:
+                this.winRTLSlash.setVisibility(View.VISIBLE);
+                break;
+            case LTRSLASH:
+                this.winLTRSlash.setVisibility(View.VISIBLE);
+                break;
+            case ROW:
+                this.winHorizontal.get(win.orientationOrdinal).setVisibility(View.VISIBLE);
+                break;
+            case COLUMN:
+                this.winVertical.get(win.orientationOrdinal).setVisibility(View.VISIBLE);
+                break;
+        }
     }
 
     private void changeTurnForNonWin(ImageView turnImage) {
@@ -121,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startGame() {
+        assignWinMarks();
         registerSlots();
         if (turn != Turn.X)
             this.changeTurn(null);

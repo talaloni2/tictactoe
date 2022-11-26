@@ -128,7 +128,7 @@
         app:layout_constraintWidth_percent="0.33" />
 
     <ImageView
-        android:id="@+id/winVertical"
+        android:id="@+id/winVertical1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitXY"
@@ -136,13 +136,38 @@
         android:src="@drawable/mark4"
         app:layout_constraintBottom_toBottomOf="@id/background"
         app:layout_constraintEnd_toEndOf="@id/slot11"
-        app:layout_constraintStart_toStartOf="@id/background"
+        app:layout_constraintStart_toStartOf="@id/slot11"
         app:layout_constraintTop_toTopOf="@id/background"
         android:visibility="invisible"/>
 
-    <!--    When moving this Image, move layout_constraintBottom_toBottomOf, layout_constraintTop_toTopOf to first digit representing line-->
     <ImageView
-        android:id="@+id/winHorizontal"
+        android:id="@+id/winVertical2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:scaleX="3"
+        android:src="@drawable/mark4"
+        app:layout_constraintBottom_toBottomOf="@id/background"
+        app:layout_constraintEnd_toEndOf="@id/slot12"
+        app:layout_constraintStart_toStartOf="@id/slot12"
+        app:layout_constraintTop_toTopOf="@id/background"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/winVertical3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:scaleX="3"
+        android:src="@drawable/mark4"
+        app:layout_constraintBottom_toBottomOf="@id/background"
+        app:layout_constraintEnd_toEndOf="@id/slot13"
+        app:layout_constraintStart_toStartOf="@id/slot13"
+        app:layout_constraintTop_toTopOf="@id/background"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/winHorizontal1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:rotation="90"
@@ -153,6 +178,34 @@
         app:layout_constraintEnd_toEndOf="@id/slot13"
         app:layout_constraintStart_toStartOf="@id/slot11"
         app:layout_constraintTop_toTopOf="@id/slot11"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/winHorizontal2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:rotation="90"
+        android:scaleX="3"
+        android:scaleY="3"
+        android:src="@drawable/mark4"
+        app:layout_constraintBottom_toBottomOf="@id/slot21"
+        app:layout_constraintEnd_toEndOf="@id/slot13"
+        app:layout_constraintStart_toStartOf="@id/slot11"
+        app:layout_constraintTop_toTopOf="@id/slot21"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/winHorizontal3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:rotation="90"
+        android:scaleX="3"
+        android:scaleY="3"
+        android:src="@drawable/mark4"
+        app:layout_constraintBottom_toBottomOf="@id/slot31"
+        app:layout_constraintEnd_toEndOf="@id/slot13"
+        app:layout_constraintStart_toStartOf="@id/slot11"
+        app:layout_constraintTop_toTopOf="@id/slot31"
         android:visibility="invisible"/>
 
     <ImageView
