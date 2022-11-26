@@ -26,6 +26,8 @@
         app:layout_constraintWidth_percent="0.33"
         app:layout_constraintHeight_percent="0.2"
         android:src="@drawable/empty"
+        android:focusable="true"
+        android:clickable="true"
         app:layout_constraintStart_toStartOf="@id/background"
         app:layout_constraintTop_toTopOf="@id/background"
         />
@@ -37,9 +39,10 @@
         app:layout_constraintWidth_percent="0.33"
         app:layout_constraintHeight_percent="0.2"
         android:src="@drawable/empty"
+        android:focusable="true"
+        android:clickable="true"
         app:layout_constraintStart_toEndOf="@id/slot11"
-        app:layout_constraintTop_toTopOf="@id/background"
-        />
+        app:layout_constraintTop_toTopOf="@id/background" />
     <ImageView
         android:id="@+id/slot13"
         android:layout_width="0dp"
@@ -47,6 +50,8 @@
         app:layout_constraintWidth_percent="0.33"
         app:layout_constraintHeight_percent="0.2"
         android:src="@drawable/empty"
+        android:focusable="true"
+        android:clickable="true"
         app:layout_constraintStart_toEndOf="@id/slot12"
         app:layout_constraintTop_toTopOf="@id/background"
         />
@@ -57,6 +62,8 @@
         app:layout_constraintWidth_percent="0.33"
         app:layout_constraintHeight_percent="0.2"
         android:src="@drawable/empty"
+        android:focusable="true"
+        android:clickable="true"
         app:layout_constraintTop_toBottomOf="@id/slot11"
         app:layout_constraintStart_toStartOf="@id/background"
         />
@@ -67,6 +74,8 @@
         app:layout_constraintWidth_percent="0.33"
         app:layout_constraintHeight_percent="0.2"
         android:src="@drawable/empty"
+        android:focusable="true"
+        android:clickable="true"
         app:layout_constraintStart_toEndOf="@id/slot21"
         app:layout_constraintTop_toBottomOf="@id/slot12"
         />
@@ -77,6 +86,8 @@
         app:layout_constraintWidth_percent="0.33"
         app:layout_constraintHeight_percent="0.2"
         android:src="@drawable/empty"
+        android:focusable="true"
+        android:clickable="true"
         app:layout_constraintStart_toEndOf="@id/slot22"
         app:layout_constraintTop_toBottomOf="@id/slot13"
         />
@@ -87,6 +98,8 @@
         app:layout_constraintWidth_percent="0.33"
         app:layout_constraintHeight_percent="0.2"
         android:src="@drawable/empty"
+        android:focusable="true"
+        android:clickable="true"
         app:layout_constraintTop_toBottomOf="@id/slot21"
         app:layout_constraintStart_toStartOf="@id/background"
         />
@@ -97,6 +110,8 @@
         app:layout_constraintWidth_percent="0.33"
         app:layout_constraintHeight_percent="0.2"
         android:src="@drawable/empty"
+        android:focusable="true"
+        android:clickable="true"
         app:layout_constraintStart_toEndOf="@id/slot31"
         app:layout_constraintTop_toBottomOf="@id/slot22"
         />
@@ -107,12 +122,14 @@
         app:layout_constraintWidth_percent="0.33"
         app:layout_constraintHeight_percent="0.2"
         android:src="@drawable/empty"
+        android:focusable="true"
+        android:clickable="true"
         app:layout_constraintStart_toEndOf="@id/slot32"
         app:layout_constraintTop_toBottomOf="@id/slot23"
         />
 
     <ImageView
-        android:id="+@id/winVertical"
+        android:id="@+id/winVertical"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitXY"
@@ -126,7 +143,7 @@
 
 <!--    When moving this Image, move layout_constraintBottom_toBottomOf, layout_constraintTop_toTopOf to first digit representing line-->
     <ImageView
-        android:id="+@id/winHorizontal"
+        android:id="@+id/winHorizontal"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/mark4"

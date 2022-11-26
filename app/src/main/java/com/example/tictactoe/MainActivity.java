@@ -37,17 +37,34 @@ public class MainActivity extends AppCompatActivity {
         if (emptyImage == null) {
             return;
         }
-        for(int i = 1; i <=3; i++) {
-            for(int j = 1; j <=3; j++){
-                ImageView slot = findViewById(getIdentifier("slot"+i+""+j));
-                slot.setClickable(true);
+        for (int i = 1; i <= 3; i++) {
+            for (int j = 1; j <= 3; j++) {
+                ImageView slot = findViewById(getIdentifier("slot" + i + "" + j));
                 slot.setOnClickListener(this::slotOnClick);
             }
         }
     }
 
     private void slotOnClick(View view) {
-        Toast.makeText(MainActivity.this, "Random Toast", Toast.LENGTH_SHORT).show();
+        ((ImageView) view).setImageResource(this.getTurnImage());
+        this.changeTurn();
+    }
+
+    private int getTurnImage() {
+        if (this.turn == Turn.X)
+            return R.drawable.x;
+        return R.drawable.o;
+    }
+
+    private void changeTurn() {
+        ImageView turnImage = findViewById(getIdentifier("turn"));
+        if (this.turn == Turn.X) {
+            this.turn = Turn.O;
+            turnImage.setImageResource(R.drawable.oplay);
+        } else {
+            this.turn = Turn.X;
+            turnImage.setImageResource(R.drawable.xplay);
+        }
     }
 
     private int getIdentifier(String id) {
