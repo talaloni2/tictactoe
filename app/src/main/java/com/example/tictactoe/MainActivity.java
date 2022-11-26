@@ -3,21 +3,28 @@ package com.example.tictactoe;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.tictactoe.models.Win;
+import com.example.tictactoe.utils.CompareUtil;
+import com.example.tictactoe.utils.WinCheckUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private enum Turn {
         X,
-        O;
+        O
     }
 
     private Turn turn;
+    private List<List<ImageView>> boardViews;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +53,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void slotOnClick(View view) {
-        ((ImageView) view).setImageResource(this.getTurnImage());
+        ImageView viewAsImage = (ImageView) view;
+        Drawable emptyImage = ResourcesCompat.getDrawable(getResources(), R.drawable.empty, getTheme());
+        if (!CompareUtil.drawablesEqual(viewAsImage.getDrawable(), emptyImage)){
+            return;
+        }
+        viewAsImage.setImageResource(this.getTurnImage());
+        Win w = WinCheckUtil.checkWin(getBoard(), emptyImage);
+        if (w != null) {
+            Toast.makeText(this, turn.name() + " WINS!!!", Toast.LENGTH_SHORT).show();
+        }
         this.changeTurn();
+    }
+
+    private List<List<Drawable>> getBoard() {
+        List<List<Drawable>> board = new ArrayList<>();
+        for (int i = 1; i <= 3; i++) {
+            board.add(new ArrayList<>());
+            for (int j = 1; j <= 3; j++) {
+                ImageView slot = findViewById(getIdentifier("slot" + i + "" + j));
+                board.get(i - 1).add(slot.getDrawable());
+            }
+        }
+        return board;
     }
 
     private int getTurnImage() {
