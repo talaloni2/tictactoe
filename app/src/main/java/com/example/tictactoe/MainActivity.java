@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Turn turn;
+    private static final int FIRST_SLOT_ORDINAL = 1;
+    private static final int LAST_SLOT_ORDINAL = 3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
         if (emptyImage == null) {
             return;
         }
-        for (int i = 1; i <= 3; i++) {
-            for (int j = 1; j <= 3; j++) {
+        for (int i = FIRST_SLOT_ORDINAL; i <= LAST_SLOT_ORDINAL; i++) {
+            for (int j = FIRST_SLOT_ORDINAL; j <= LAST_SLOT_ORDINAL; j++) {
                 ImageView slot = findViewById(getIdentifier("slot" + i + "" + j));
                 slot.setOnClickListener(this::slotOnClick);
             }
@@ -52,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void slotOnClick(View view) {
+        if (turn == null) {
+            return;
+        }
+
         ImageView viewAsImage = (ImageView) view;
         Drawable emptyImage = ResourcesCompat.getDrawable(getResources(), R.drawable.empty, getTheme());
         if (!CompareUtil.drawablesEqual(viewAsImage.getDrawable(), emptyImage)){
@@ -59,17 +66,14 @@ public class MainActivity extends AppCompatActivity {
         }
         viewAsImage.setImageResource(this.getTurnImage());
         Win w = WinCheckUtil.checkWin(getBoard(), emptyImage);
-        if (w != null) {
-            Toast.makeText(this, turn.name() + " WINS!!!", Toast.LENGTH_SHORT).show();
-        }
-        this.changeTurn();
+        this.changeTurn(w);
     }
 
     private List<List<Drawable>> getBoard() {
         List<List<Drawable>> board = new ArrayList<>();
-        for (int i = 1; i <= 3; i++) {
+        for (int i = FIRST_SLOT_ORDINAL; i <= LAST_SLOT_ORDINAL; i++) {
             board.add(new ArrayList<>());
-            for (int j = 1; j <= 3; j++) {
+            for (int j = FIRST_SLOT_ORDINAL; j <= LAST_SLOT_ORDINAL; j++) {
                 ImageView slot = findViewById(getIdentifier("slot" + i + "" + j));
                 board.get(i - 1).add(slot.getDrawable());
             }
@@ -83,8 +87,28 @@ public class MainActivity extends AppCompatActivity {
         return R.drawable.o;
     }
 
-    private void changeTurn() {
+    private void changeTurn(Win win) {
         ImageView turnImage = findViewById(getIdentifier("turn"));
+
+        if (changeTurnForWin(win, turnImage)) return;
+
+        changeTurnForNonWin(turnImage);
+    }
+
+    private boolean changeTurnForWin(Win win, ImageView turnImage) {
+        if (win != null) {
+            if (this.turn == Turn.X)
+                turnImage.setImageResource(R.drawable.xwin);
+            else {
+                turnImage.setImageResource(R.drawable.owin);
+            }
+            this.turn = null;
+            return true;
+        }
+        return false;
+    }
+
+    private void changeTurnForNonWin(ImageView turnImage) {
         if (this.turn == Turn.X) {
             this.turn = Turn.O;
             turnImage.setImageResource(R.drawable.oplay);
