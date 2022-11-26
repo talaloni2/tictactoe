@@ -112,6 +112,54 @@
         />
 
     <ImageView
+        android:id="+@id/winVertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/mark4"
+        app:layout_constraintBottom_toBottomOf="@id/background"
+        app:layout_constraintEnd_toEndOf="@id/slot11"
+        app:layout_constraintStart_toStartOf="@id/background"
+        app:layout_constraintTop_toTopOf="@id/background"
+        android:scaleX="3"
+        />
+
+<!--    When moving this Image, move layout_constraintBottom_toBottomOf, layout_constraintTop_toTopOf to first digit representing line-->
+    <ImageView
+        android:id="+@id/winHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/mark4"
+        app:layout_constraintBottom_toBottomOf="@id/slot11"
+        app:layout_constraintEnd_toEndOf="@id/slot13"
+        app:layout_constraintStart_toStartOf="@id/slot11"
+        app:layout_constraintTop_toTopOf="@id/slot11"
+        android:rotation="90"
+        android:scaleY="3"
+        android:scaleX="3"
+        />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="@id/background"
+        app:layout_constraintEnd_toEndOf="@id/background"
+        app:layout_constraintTop_toTopOf="@id/background"
+        app:layout_constraintBottom_toBottomOf="@id/background"
+        android:src="@drawable/mark1"
+        />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="@id/background"
+        app:layout_constraintEnd_toEndOf="@id/background"
+        app:layout_constraintTop_toTopOf="@id/background"
+        app:layout_constraintBottom_toBottomOf="@id/background"
+        android:src="@drawable/mark2"
+        />
+
+    <ImageView
         android:id="@+id/turn"
         android:layout_width="0dp"
         android:layout_height="0dp"
