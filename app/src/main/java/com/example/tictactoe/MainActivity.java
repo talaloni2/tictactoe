@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Turn turn = Turn.X;
 
+    Button playAgain;
+
     ImageView winLTRSlash;
     ImageView winRTLSlash;
     List<ImageView> winHorizontal;
@@ -43,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void assignComponents() {
-        Button play_again = findViewById(getIdentifier("play_again"));
-        play_again.setOnClickListener(view -> this.startGame());
+        this.playAgain = findViewById(getIdentifier("play_again"));
+        playAgain.setOnClickListener(view -> this.startGame());
     }
 
     private void assignWinMarks() {
@@ -129,6 +131,8 @@ public class MainActivity extends AppCompatActivity {
 
         this.drawWin(win);
 
+        this.playAgain.setVisibility(View.VISIBLE);
+
         this.turn = null;
         return true;
     }
@@ -167,6 +171,9 @@ public class MainActivity extends AppCompatActivity {
     private void startGame() {
         assignWinMarks();
         registerSlots();
+
+        this.playAgain.setVisibility(View.INVISIBLE);
+
         if (turn != Turn.X)
             this.changeTurn(null);
     }
