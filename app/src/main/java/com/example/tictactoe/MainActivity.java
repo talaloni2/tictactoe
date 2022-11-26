@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Turn turn = Turn.X;
-    private List<List<ImageView>> boardViews;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
