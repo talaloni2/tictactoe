@@ -127,6 +127,6 @@ public class MainActivity extends AppCompatActivity {
     private void startGame() {
         registerComponents();
         if (turn != Turn.X)
-            this.changeTurn();
+            this.changeTurn(null);
     }
 }
