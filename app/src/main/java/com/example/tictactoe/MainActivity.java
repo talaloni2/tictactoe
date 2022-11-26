@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -17,15 +18,20 @@ public class MainActivity extends AppCompatActivity {
         O;
     }
 
-    private Turn turn;
+    private Turn turn = Turn.X;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        registerComponents();
-        startGame();
+        this.assignComponents();
+        this.startGame();
+    }
+
+    private void assignComponents() {
+        Button play_again = findViewById(getIdentifier("play_again"));
+        play_again.setOnClickListener(view -> this.startGame());
     }
 
     private void registerComponents() {
@@ -33,13 +39,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void registerSlots() {
-        Drawable emptyImage = ResourcesCompat.getDrawable(getResources(), R.drawable.empty, getTheme());
-        if (emptyImage == null) {
-            return;
-        }
         for (int i = 1; i <= 3; i++) {
             for (int j = 1; j <= 3; j++) {
                 ImageView slot = findViewById(getIdentifier("slot" + i + "" + j));
+                slot.setImageResource(R.drawable.empty);
                 slot.setOnClickListener(this::slotOnClick);
             }
         }
@@ -72,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startGame() {
-        turn = Turn.X;
+        registerComponents();
+        if (turn != Turn.X)
+            this.changeTurn();
     }
 }
