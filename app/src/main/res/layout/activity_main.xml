@@ -23,158 +23,155 @@
         android:id="@+id/slot11"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.33"
-        app:layout_constraintHeight_percent="0.2"
-        android:src="@drawable/empty"
-        android:focusable="true"
         android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/empty"
+        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toStartOf="@id/background"
         app:layout_constraintTop_toTopOf="@id/background"
-        />
+        app:layout_constraintWidth_percent="0.33" />
 
     <ImageView
         android:id="@+id/slot12"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.33"
-        app:layout_constraintHeight_percent="0.2"
-        android:src="@drawable/empty"
-        android:focusable="true"
         android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/empty"
+        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toEndOf="@id/slot11"
-        app:layout_constraintTop_toTopOf="@id/background" />
+        app:layout_constraintTop_toTopOf="@id/background"
+        app:layout_constraintWidth_percent="0.33" />
+
     <ImageView
         android:id="@+id/slot13"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.33"
-        app:layout_constraintHeight_percent="0.2"
-        android:src="@drawable/empty"
-        android:focusable="true"
         android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/empty"
+        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toEndOf="@id/slot12"
         app:layout_constraintTop_toTopOf="@id/background"
-        />
+        app:layout_constraintWidth_percent="0.33" />
+
     <ImageView
         android:id="@+id/slot21"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.33"
-        app:layout_constraintHeight_percent="0.2"
-        android:src="@drawable/empty"
-        android:focusable="true"
         android:clickable="true"
-        app:layout_constraintTop_toBottomOf="@id/slot11"
+        android:focusable="true"
+        android:src="@drawable/empty"
+        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toStartOf="@id/background"
-        />
+        app:layout_constraintTop_toBottomOf="@id/slot11"
+        app:layout_constraintWidth_percent="0.33" />
+
     <ImageView
         android:id="@+id/slot22"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.33"
-        app:layout_constraintHeight_percent="0.2"
-        android:src="@drawable/empty"
-        android:focusable="true"
         android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/empty"
+        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toEndOf="@id/slot21"
         app:layout_constraintTop_toBottomOf="@id/slot12"
-        />
+        app:layout_constraintWidth_percent="0.33" />
+
     <ImageView
         android:id="@+id/slot23"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.33"
-        app:layout_constraintHeight_percent="0.2"
-        android:src="@drawable/empty"
-        android:focusable="true"
         android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/empty"
+        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toEndOf="@id/slot22"
         app:layout_constraintTop_toBottomOf="@id/slot13"
-        />
+        app:layout_constraintWidth_percent="0.33" />
+
     <ImageView
         android:id="@+id/slot31"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.33"
-        app:layout_constraintHeight_percent="0.2"
-        android:src="@drawable/empty"
-        android:focusable="true"
         android:clickable="true"
-        app:layout_constraintTop_toBottomOf="@id/slot21"
+        android:focusable="true"
+        android:src="@drawable/empty"
+        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toStartOf="@id/background"
-        />
+        app:layout_constraintTop_toBottomOf="@id/slot21"
+        app:layout_constraintWidth_percent="0.33" />
+
     <ImageView
         android:id="@+id/slot32"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.33"
-        app:layout_constraintHeight_percent="0.2"
-        android:src="@drawable/empty"
-        android:focusable="true"
         android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/empty"
+        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toEndOf="@id/slot31"
         app:layout_constraintTop_toBottomOf="@id/slot22"
-        />
+        app:layout_constraintWidth_percent="0.33" />
+
     <ImageView
         android:id="@+id/slot33"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.33"
-        app:layout_constraintHeight_percent="0.2"
-        android:src="@drawable/empty"
-        android:focusable="true"
         android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/empty"
+        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toEndOf="@id/slot32"
         app:layout_constraintTop_toBottomOf="@id/slot23"
-        />
+        app:layout_constraintWidth_percent="0.33" />
 
     <ImageView
         android:id="@+id/winVertical"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitXY"
+        android:scaleX="3"
         android:src="@drawable/mark4"
         app:layout_constraintBottom_toBottomOf="@id/background"
         app:layout_constraintEnd_toEndOf="@id/slot11"
         app:layout_constraintStart_toStartOf="@id/background"
-        app:layout_constraintTop_toTopOf="@id/background"
-        android:scaleX="3"
-        />
+        app:layout_constraintTop_toTopOf="@id/background" />
 
-<!--    When moving this Image, move layout_constraintBottom_toBottomOf, layout_constraintTop_toTopOf to first digit representing line-->
+    <!--    When moving this Image, move layout_constraintBottom_toBottomOf, layout_constraintTop_toTopOf to first digit representing line-->
     <ImageView
         android:id="@+id/winHorizontal"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:rotation="90"
+        android:scaleX="3"
+        android:scaleY="3"
         android:src="@drawable/mark4"
         app:layout_constraintBottom_toBottomOf="@id/slot11"
         app:layout_constraintEnd_toEndOf="@id/slot13"
         app:layout_constraintStart_toStartOf="@id/slot11"
-        app:layout_constraintTop_toTopOf="@id/slot11"
-        android:rotation="90"
-        android:scaleY="3"
-        android:scaleX="3"
-        />
+        app:layout_constraintTop_toTopOf="@id/slot11" />
+
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="@id/background"
-        app:layout_constraintEnd_toEndOf="@id/background"
-        app:layout_constraintTop_toTopOf="@id/background"
-        app:layout_constraintBottom_toBottomOf="@id/background"
         android:src="@drawable/mark1"
-        />
+        app:layout_constraintBottom_toBottomOf="@id/background"
+        app:layout_constraintEnd_toEndOf="@id/background"
+        app:layout_constraintStart_toStartOf="@id/background"
+        app:layout_constraintTop_toTopOf="@id/background" />
+
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="@id/background"
-        app:layout_constraintEnd_toEndOf="@id/background"
-        app:layout_constraintTop_toTopOf="@id/background"
-        app:layout_constraintBottom_toBottomOf="@id/background"
         android:src="@drawable/mark2"
-        />
+        app:layout_constraintBottom_toBottomOf="@id/background"
+        app:layout_constraintEnd_toEndOf="@id/background"
+        app:layout_constraintStart_toStartOf="@id/background"
+        app:layout_constraintTop_toTopOf="@id/background" />
 
     <ImageView
         android:id="@+id/turn"
