@@ -155,6 +155,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void changeTurnForNonWin(ImageView turnImage) {
+        Drawable emptyImage = ResourcesCompat.getDrawable(getResources(), R.drawable.empty, getTheme());
+        boolean allPlacesGone = getBoard().stream()
+                .allMatch(l -> l.stream().noneMatch(d -> CompareUtil.drawablesEqual(d, emptyImage)));
+        if(allPlacesGone){
+            turn = null;
+            turnImage.setImageResource(R.drawable.nowin);
+            playAgain.setVisibility(View.VISIBLE);
+            return;
+        }
         if (this.turn == Turn.X) {
             this.turn = Turn.O;
             turnImage.setImageResource(R.drawable.oplay);
